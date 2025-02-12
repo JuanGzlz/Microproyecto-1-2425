@@ -2,14 +2,13 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #0c0520;
     color: white;
     margin: 0;
     padding: 0;
-    height: 80vh;
+    height: 90vh;
 }
 
 
@@ -20,13 +19,20 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:hover {
     border: white 2px solid;
     background-color: rgb(10, 90, 34);
     padding: 10px 20px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .color-button {
