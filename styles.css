@@ -1,7 +1,24 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #fdfdfd;
+    background-color: #0c0520;
+    color: white;
     margin: 0;
     padding: 0;
+}
+
+button {
+    background-color: rgb(14, 126, 48);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    border: white 2px solid;
+    background-color: rgb(10, 90, 34);
+    padding: 10px 20px;
 }
