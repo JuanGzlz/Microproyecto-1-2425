@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #0c0520;
@@ -11,6 +12,15 @@ body {
     height: 90vh;
 }
 
+.titulo {
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 button {
     background-color: rgb(14, 126, 48);
@@ -53,4 +63,32 @@ button:hover {
 
 .color-button.active {
     opacity: 0.5;
+}
+
+.high-scores {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+
+.high-scores th, .high-scores td {
+    border: 2px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.high-scores th {
+    color: white;
+}
+
+input#playerName {
+    width: 175px;
+    padding: 10px 20px;
+    font-size: px;
+    border: 1.5px solid #757575;
+    border-radius: 5px;
 }
