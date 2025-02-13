@@ -2,6 +2,12 @@ const inputNombre = document.getElementById("playerName");
 const startButton = document.getElementById("startButton");
 const errorText = document.getElementById("error");
 const clearScoresButton = document.getElementById("clearScoresButton");
+const sounds = {
+    red: new Audio('sounds/red.wav'),
+    green: new Audio('sounds/green.wav'),
+    blue: new Audio('sounds/blue.mp3'),
+    yellow: new Audio('sounds/yellow.mp3')
+};
 
 if (window.location.pathname === '/menu.html') {
     inputNombre.addEventListener("input", () => {
@@ -95,7 +101,10 @@ if (window.location.pathname === '/index.html') {
     function highlightButton(color) {
         let button = document.querySelector(`.${color}`);
         button.classList.add('glow'); // Agrega la clase que ilumina el botón
-
+        if (sounds[color]) {
+            sounds[color].currentTime = 0; // Reinicia el sonido si se reproduce seguido
+            sounds[color].play();
+        }
         setTimeout(() => {
             button.classList.remove('glow'); // Quita la clase después de 500ms
         }, 500);
