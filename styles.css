@@ -125,40 +125,27 @@ input#playerName {
 }
 
 .popup {
-    display: none; /* Oculto por defecto */
+    display: none; /* Inicialmente oculto */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .popup-content {
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.5);
+    background-color:rgba(255, 255, 255, 0.7);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: black;
 }
+/* Pendiente colocar estilos para botones del pop up!!! */
 
-.popup button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#restartButton {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#menuButton {
-    background-color: #f44336;
-    color: white;
+.popup-content button:hover {
+    background-color: #444;
 }
