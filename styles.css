@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -88,12 +88,25 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.25; /* Inicialmente transparente */
+    transition: opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.red { background-color: red; }
-.green { background-color: green; }
-.blue { background-color: blue; }
-.yellow { background-color: yellow; }
+.color-button:hover {
+    opacity: 1;
+    width: 130px;
+    height: 130px;
+}
+
+.color-button.glow {
+    box-shadow: 0 0 20px 5px white; /* Efecto de brillo */
+    opacity: 1; /* Se vuelve completamente opaco cuando se ilumina en la secuencia */
+}
+
+.red { background-color: red;}
+.green { background-color: green;}
+.blue { background-color: blue;}
+.yellow { background-color: yellow;}
 
 .color-button.active {
     opacity: 0.5;

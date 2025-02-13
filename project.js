@@ -94,9 +94,10 @@ if (window.location.pathname === '/index.html') {
     
     function highlightButton(color) {
         let button = document.querySelector(`.${color}`);
-        button.style.opacity = '0.5';
+        button.classList.add('glow'); // Agrega la clase que ilumina el botón
+
         setTimeout(() => {
-            button.style.opacity = '1';
+            button.classList.remove('glow'); // Quita la clase después de 500ms
         }, 500);
     }
     
