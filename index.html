@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simos Says</title>
+    <title>Simon Says</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,13 +12,16 @@
         <div class="color-button green" onclick="playerMove('green')"></div>
         <div class="color-button blue" onclick="playerMove('blue')"></div>
         <div class="color-button yellow" onclick="playerMove('yellow')"></div>
-    </div>
+    </section>
     <p>Puntaje: <span id="score">0</span></p>
-    <button id="resetButton">
-        <a href="menu.html">
-            <strong>Reiniciar</strong>
-        </a>
-    </button>
+    <div id="gameOverPopup" class="popup">
+        <div class="popup-content">
+            <h2>¡PERDISTE!</h2>
+            <p>Tu puntaje fue: <span id="finalScore">0</span></p>
+            <button id="restartButton">Reiniciar</button>
+            <button id="menuButton">Volver al menú</button>
+        </div>
+    </div>
     <script src="project.js"></script>
 </body>
 </html>

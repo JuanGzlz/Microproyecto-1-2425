@@ -1,6 +1,7 @@
 const inputNombre = document.getElementById("playerName");
 const startButton = document.getElementById("startButton");
 const errorText = document.getElementById("error");
+const clearScoresButton = document.getElementById("clearScoresButton");
 
 if (window.location.pathname === '/menu.html') {
     inputNombre.addEventListener("input", () => {
@@ -32,7 +33,7 @@ if (window.location.pathname === '/menu.html') {
     function updateScoreTable() {
         const tableBody = document.getElementById('highScores').getElementsByTagName('tbody')[0];
         
-        //tableBody.innerHTML = ''; // Limpiar la tabla antes de actualizarla
+        tableBody.innerHTML = ''; // Limpiar la tabla antes de actualizarla
         
         for (let i = 0; i < localStorage.length; i++) {
             const playerName = localStorage.key(i);
@@ -52,16 +53,25 @@ let colors = ['red', 'green', 'blue', 'yellow'];
 let index = 0;
 let score = 0;
 
-
 if (window.location.pathname === '/index.html') {
+
     window.onload = function () {
         startGame();  
     };
+
+    document.getElementById("restartButton").addEventListener("click", () => {
+        document.getElementById("gameOverPopup").style.display = "none"; // Ocultar el pop-up
+        document.getElementById("popup-content").style.display = "none"; // Ocultar el contenido del pop-up
+        startGame(); // Iniciar un nuevo juego
+    });
 
     function startGame() {
         sequence = [];
         playerSequence = [];
         index = 0;
+        score = 0;
+        document.getElementById("score").textContent = score;
+        document.getElementById("gameOverPopup").style.display = "none"; // Ocultar el popup al iniciar el juego
         addColorToSequence();
     }
     
@@ -94,7 +104,6 @@ if (window.location.pathname === '/index.html') {
         playerSequence.push(color);
         if (playerSequence[playerSequence.length - 1] !== sequence[playerSequence.length - 1]) {
             endGame(score);
-            return;
         }
         if (playerSequence.length === sequence.length) {
             score++;
@@ -105,10 +114,20 @@ if (window.location.pathname === '/index.html') {
     }
     
     function endGame(finalScore) {
+        console.log("Game Over! Final Score:", finalScore); //
+        document.getElementById("finalScore").textContent = finalScore; // Mostrar puntaje final
+        document.getElementById("gameOverPopup").style.display = "flex"; // Mostrar el pop-up
+        document.getElementById("popup-content").style.display = "flex"; 
+
         const username = localStorage.getItem("playerName"); // Obtener el nombre del jugador guardado
         let currentScore = localStorage.getItem(username) || 0;
         currentScore = Math.max(currentScore, finalScore); // Guardar el puntaje más alto
         localStorage.setItem(username, currentScore); // Guardar el puntaje bajo el nombre del jugador
-        window.location.href = "menu.html";
     }
+
+    
+
+    document.getElementById("menuButton").addEventListener("click", () => {
+        window.location.href = "menu.html"; // Regresa al menú
+    });
 }
