@@ -101,7 +101,6 @@ button:hover {
 
 .high-scores {
     text-align: center;
-    display: flex;
     align-items: center;
     justify-content: center;
     border-collapse: collapse;
@@ -116,9 +115,6 @@ button:hover {
     width: 150px;
 }
 
-.high-scores th {
-    color: white;
-}
 
 input#playerName {
     width: 175px;
