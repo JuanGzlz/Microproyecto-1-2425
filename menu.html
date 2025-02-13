@@ -16,17 +16,15 @@
         </p>
     </header>
     <section class="container">
-        <div>
+        <div class="input-container">
             <input type="text" id="playerName" placeholder="Ingresa tu nombre...">
+            <button id="startButton" disabled>
+                <strong>¡A Jugar!</strong>
+            </button>
+            
         </div>
-        <div>
-            <a href="index.html">
-                <button id="startButton">
-                    <strong>
-                        ¡A Jugar!
-                    </strong>
-                </button>
-             </a>
+        <div class="error-container">
+            <p id="error"><strong> El nombre debe tener entre 3 y 10 caracteres.</strong></p>
         </div>
     </section>
     <section class="mejores-puntajes">
@@ -37,13 +35,16 @@
         </div>
         <div>
             <table id="highScores" class="high-scores">
-                <tr>
-                    <th>Jugador</th>
-                    <th>Puntaje</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Jugador</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
         </div>
     </section>
-        
+    <script src="project.js"></script>    
 </body>
 </html>

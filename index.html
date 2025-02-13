@@ -8,16 +8,16 @@
 </head>
 <body>
     <section class="game-board">
-        <div class="color-button red" data-color="red"></div>
-        <div class="color-button green" data-color="green"></div>
-        <div class="color-button blue" data-color="blue"></div>
-        <div class="color-button yellow" data-color="yellow"></div>
+        <div class="color-button red" onclick="playerMove('red')"></div>
+        <div class="color-button green" onclick="playerMove('green')"></div>
+        <div class="color-button blue" onclick="playerMove('blue')"></div>
+        <div class="color-button yellow" onclick="playerMove('yellow')"></div>
     </div>
     <p>Puntaje: <span id="score">0</span></p>
     <button id="resetButton">
-        <strong>
-            Reiniciar
-        </strong>
+        <a href="menu.html">
+            <strong>Reiniciar</strong>
+        </a>
     </button>
     <script src="project.js"></script>
 </body>

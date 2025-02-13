@@ -26,10 +26,22 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     gap: 15px;
     align-items: center;
     justify-content: center;
     padding: 25px;
+}
+.error-container {
+    height: 10px; /* Tamaño fijo */
+    line-height: 10px;
+}
+
+#error {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
 }
 
 .mejores-puntajes {
