@@ -24,7 +24,7 @@ if (window.location.pathname === '/menu.html') {
     startButton.addEventListener("click", () => {
         const nombre = inputNombre.value.trim(); 
         localStorage.setItem("playerName", nombre);
-        window.location.href = "index.html"; 
+        window.location.href = "juego.html"; 
     });
 
     window.onload = function() {
@@ -59,7 +59,7 @@ let colors = ['red', 'green', 'blue', 'yellow'];
 let index = 0;
 let score = 0;
 
-if (window.location.pathname === '/index.html') {
+if (window.location.pathname === '/juego.html') {
 
     let interval;
 
