@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h2 id="gameStatus">¡Presiona "Iniciar Juego"!</h2>
     <section class="game-board">
         <div class="color-button red" onclick="playerMove('red')"></div>
         <div class="color-button green" onclick="playerMove('green')"></div>
         <div class="color-button blue" onclick="playerMove('blue')"></div>
         <div class="color-button yellow" onclick="playerMove('yellow')"></div>
     </section>
-    <p>Puntaje: <span id="score">0</span></p>
+    <p>Puntaje: <Strong><span id="score">0</span></Strong></p>
     <div id="gameOverPopup" class="popup">
         <div class="popup-content">
             <h2>¡PERDISTE!</h2>
-            <p>Puntaje final: <span id="finalScore"></span></p>
+            <p>Puntaje final: <Strong><span id="finalScore"></span></Strong></p>
             <button id="restartButton">Reiniciar Juego</button>
             <button id="goToMenuButton">Volver al Menú</button>
         </div>

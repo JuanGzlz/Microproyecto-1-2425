@@ -88,12 +88,16 @@ if (window.location.pathname === '/juego.html') {
     }
     
     function showSequence() {
+        document.getElementById("gameStatus").textContent = "Simón dice...";
         let i = 0;
         interval = setInterval(() => {
             highlightButton(sequence[i]);
             i++;
             if (i >= sequence.length) {
                 clearInterval(interval);
+                setTimeout(() => {
+                    document.getElementById("gameStatus").textContent = "Replica la secuencia.";
+                }, 500);
             }
         }, 1000);
     }
