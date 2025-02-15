@@ -162,3 +162,75 @@ input#playerName {
 .popup-content button:hover {
     background-color: #444;
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 100px); /* Botones más pequeños */
+        grid-gap: 10px;
+    }
+
+    .color-button {
+        width: 100px;
+        height: 100px;
+    }
+
+    .color-button:hover {
+        width: 105px;
+        height: 105px;
+    }
+
+    input#playerName {
+        width: 150px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .titulo {
+        font-size: 16px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 80px);
+        grid-gap: 8px;
+    }
+
+    .color-button {
+        width: 80px;
+        height: 80px;
+    }
+
+    .color-button:hover {
+        width: 85px;
+        height: 85px;
+    }
+
+    input#playerName {
+        width: 140px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .popup-content {
+        width: 80%;
+        padding: 15px;
+    }
+}
