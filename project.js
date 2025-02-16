@@ -9,7 +9,7 @@ const sounds = {
     yellow: new Audio('sounds/yellow.mp3')
 };
 
-if (window.location.pathname === '/menu.html') {
+if (window.location.pathname === '/index.html') {
     inputNombre.addEventListener("input", () => {
         const nombre = inputNombre.value.trim(); 
         if (nombre.length >= 3 && nombre.length <= 10) {
@@ -39,17 +39,28 @@ if (window.location.pathname === '/menu.html') {
     function updateScoreTable() { //PENDIENTE REVISAR QUE SE ACTUALICE DE MAYOR A MENOR !!!!!
         const tableBody = document.getElementById('highScores').getElementsByTagName('tbody')[0];
         
-        tableBody.innerHTML = ''; // Limpiar la tabla antes de actualizarla
-        
+        // Crear un array con los puntajes
+        let scores = [];
         for (let i = 0; i < localStorage.length; i++) {
             const playerName = localStorage.key(i);
             if (playerName !== "playerName" && playerName !== "currentPlayer") { // Evitar claves de configuración
-                const score = localStorage.getItem(playerName);
-                const newRow = tableBody.insertRow();
-                newRow.insertCell(0).textContent = playerName;
-                newRow.insertCell(1).textContent = score;
+                const score = parseInt(localStorage.getItem(playerName)) || 0;
+                scores.push({ name: playerName, score: score });
             }
         }
+
+        // Ordenar los puntajes de mayor a menor
+        scores.sort((a, b) => b.score - a.score);
+
+        // Limpiar la tabla antes de actualizarla
+        tableBody.innerHTML = '';
+
+        // Insertar los puntajes ordenados en la tabla
+        scores.forEach(entry => {
+            const newRow = tableBody.insertRow();
+            newRow.insertCell(0).textContent = entry.name;
+            newRow.insertCell(1).textContent = entry.score;
+        });
     }
 }
 
@@ -147,7 +158,7 @@ if (window.location.pathname === '/juego.html') {
         });
 
         document.getElementById("goToMenuButton").addEventListener("click", () => {
-            window.location.href = "menu.html"; // Redirigir al menú
+            window.location.href = "index.html"; // Redirigir al menú
         });
     }
 

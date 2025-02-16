@@ -166,12 +166,12 @@ input#playerName {
     text-align: center;
     color: black;
 }
-/* Pendiente colocar estilos para botones del pop up!!! */
 
 .popup-content button:hover {
     background-color: #444;
 }
 
+/* Para tablets */
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -193,6 +193,11 @@ input#playerName {
         height: 105px;
     }
 
+    #gameStatus {
+        font-size: 18px;
+        opacity: 50%;
+    }
+
     input#playerName {
         width: 150px;
         padding: 8px;
@@ -200,9 +205,16 @@ input#playerName {
 
     button {
         padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 15px;
     }
 }
 
+/* Para celulares */
 @media (max-width: 480px) {
     .container {
         width: 90%;
@@ -228,9 +240,15 @@ input#playerName {
         height: 85px;
     }
 
+    #gameStatus {
+        font-size: 16px;
+        opacity: 70%;
+    }
+
     input#playerName {
         width: 140px;
         padding: 6px;
+        font-size: 14px;
     }
 
     button {
@@ -239,7 +257,7 @@ input#playerName {
     }
 
     .popup-content {
-        width: 80%;
-        padding: 15px;
+        width: 85%;
+        padding: 12px;
     }
 }
