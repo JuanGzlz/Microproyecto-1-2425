@@ -1,0 +1,263 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c0520;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 85vh;
+}
+
+.titulo {
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.05;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+.error-container {
+    height: 10px; /* Tamaño fijo */
+    line-height: 10px;
+}
+
+#error {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+
+.mejores-puntajes {
+    font-size: 14px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.5;
+    padding: 6.5px;
+}	
+
+button {
+    background-color: rgb(14, 126, 48);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+    border: white 2px solid;
+    background-color: rgb(10, 90, 34);
+    padding: 13px 25px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(2, 125px);
+    grid-gap: 12.5px;
+    justify-content: center;
+}
+
+#gameStatus {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 15px;
+    color: white;
+    opacity: 30%;
+}
+
+.color-button {
+    width: 125px;
+    height: 125px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.25; /* Inicialmente transparente */
+    transition: opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.color-button:hover {
+    opacity: 1;
+    width: 130px;
+    height: 130px;
+}
+
+.color-button.glow {
+    box-shadow: 0 0 20px 5px white; /* Efecto de brillo */
+    opacity: 1; /* Se vuelve completamente opaco cuando se ilumina en la secuencia */
+}
+
+.red { background-color: red;}
+.green { background-color: green;}
+.blue { background-color: blue;}
+.yellow { background-color: yellow;}
+
+.color-button.active {
+    opacity: 0.5;
+}
+
+.high-scores {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.high-scores th, .high-scores td {
+    border: 2px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+
+input#playerName {
+    width: 175px;
+    padding: 10px 20px;
+    border: 1.5px solid #757575;
+    border-radius: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.popup {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color:rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: black;
+}
+
+.popup-content button:hover {
+    background-color: #444;
+}
+
+/* Para tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 100px); /* Botones más pequeños */
+        grid-gap: 10px;
+    }
+
+    .color-button {
+        width: 100px;
+        height: 100px;
+    }
+
+    .color-button:hover {
+        width: 105px;
+        height: 105px;
+    }
+
+    #gameStatus {
+        font-size: 18px;
+        opacity: 50%;
+    }
+
+    input#playerName {
+        width: 150px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .titulo {
+        font-size: 16px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 80px);
+        grid-gap: 8px;
+    }
+
+    .color-button {
+        width: 80px;
+        height: 80px;
+    }
+
+    .color-button:hover {
+        width: 85px;
+        height: 85px;
+    }
+
+    #gameStatus {
+        font-size: 16px;
+        opacity: 70%;
+    }
+
+    input#playerName {
+        width: 140px;
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .popup-content {
+        width: 85%;
+        padding: 12px;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Simón Dice!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="titulo">      <h1>
+            Simón Dice...
+        </h1>
+        <p>
+            ¡Que sigas la secuencia de colores!
+        </p>
+    </header>
+    <section class="container">
+        <div class="input-container">
+            <input type="text" id="playerName" placeholder="Ingresa tu nombre...">
+            <button id="startButton" disabled>
+                <strong>¡A Jugar!</strong>
+            </button>
+            
+        </div>
+        <div class="error-container">
+            <p id="error"><strong> *El nombre debe tener entre 3 y 10 caracteres.</strong></p>
+        </div>
+    </section>
+    <section class="mejores-puntajes">
+        <div>
+            <h2>
+                <strong>Mejores Puntajes</strong>
+            </h2>
+        </div>
+        <div>
+            <table id="highScores" class="high-scores">
+                <thead>
+                    <tr>
+                        <th>Jugador</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <button id="clearScoresButton">Borrar Puntajes</button> 
+    <script src="project.js"></script>    
+</body>
+</html>
