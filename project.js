@@ -24,7 +24,7 @@ if (window.location.pathname === '/index.html') {
     startButton.addEventListener("click", () => {
         const nombre = inputNombre.value.trim(); 
         localStorage.setItem("playerName", nombre);
-        window.location.href = "juego.html"; 
+        window.location.href = "/juego.html"; 
     });
 
     window.onload = function() {
@@ -80,7 +80,7 @@ if (window.location.pathname === '/juego.html') {
 
     document.getElementById("restartButton").addEventListener("click", () => {
         document.getElementById("gameOverPopup").style.display = "none"; 
-        window.location.href = "juego.html"; 
+        window.location.href = "/juego.html"; 
     });
 
     function disableColorButtons() {
@@ -171,11 +171,11 @@ if (window.location.pathname === '/juego.html') {
 
         document.getElementById("restartButton").addEventListener("click", () => {
             popup.style.display = "none"; 
-            window.location.href = "juego.html"; 
+            window.location.href = "/juego.html"; 
         });
 
         document.getElementById("goToMenuButton").addEventListener("click", () => {
-            window.location.href = "index.html"; 
+            window.location.href = "/index.html"; 
         });
     }
 }

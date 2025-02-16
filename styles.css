@@ -24,6 +24,16 @@ body {
     padding: 10px;
 }
 
+#startButton {
+    background-color: rgb(14, 126, 48);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .container {
     display: flex;
     flex-direction: column;
