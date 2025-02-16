@@ -70,8 +70,31 @@ if (window.location.pathname === '/juego.html') {
     let interval;
 
     window.onload = function () {
-        startGame();  
+        disableColorButtons(); 
     };
+
+    document.getElementById("startGameButton").addEventListener("click", () => {
+        document.getElementById("startGameButton").style.display = "none";
+        startGame();
+    });
+
+    document.getElementById("restartButton").addEventListener("click", () => {
+        document.getElementById("gameOverPopup").style.display = "none"; 
+        window.location.href = "juego.html"; 
+    });
+
+    function disableColorButtons() {
+        document.querySelectorAll('.color-button').forEach(button => {
+            button.style.pointerEvents = 'none'; 
+        });
+    }
+
+    function enableColorButtons() {
+        document.querySelectorAll('.color-button').forEach(button => {
+            button.style.pointerEvents = 'auto'; 
+        });
+    }
+
 
     function startGame() {
         sequence = [];
@@ -82,17 +105,17 @@ if (window.location.pathname === '/juego.html') {
         if (interval) { 
             clearInterval(interval); 
         }
-        setTimeout(addColorToSequence(), 5000);
-        
+        addColorToSequence();
     }
     
     function addColorToSequence() {
         let randomColor = colors[Math.floor(Math.random() * colors.length)];
         sequence.push(randomColor);
-        setTimeout(showSequence(), 10000);
+        showSequence();
     }
     
     function showSequence() {
+        disableColorButtons();
         document.getElementById("gameStatus").textContent = "Simón dice...";
         let i = 0;
         interval = setInterval(() => {
@@ -105,6 +128,7 @@ if (window.location.pathname === '/juego.html') {
                 }, 500);
             }
         }, 1000);
+        enableColorButtons();
     }
     
     function highlightButton(color) {
@@ -119,6 +143,7 @@ if (window.location.pathname === '/juego.html') {
         }, 500);
     }
     
+
     function playerMove(color) {
         playerSequence.push(color);
         if (playerSequence[playerSequence.length - 1] !== sequence[playerSequence.length - 1]) {
@@ -146,12 +171,11 @@ if (window.location.pathname === '/juego.html') {
 
         document.getElementById("restartButton").addEventListener("click", () => {
             popup.style.display = "none"; 
-            startGame(); 
+            window.location.href = "juego.html"; 
         });
 
         document.getElementById("goToMenuButton").addEventListener("click", () => {
             window.location.href = "index.html"; 
         });
     }
-
 }
