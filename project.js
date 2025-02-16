@@ -28,18 +28,17 @@ if (window.location.pathname === '/index.html') {
     });
 
     window.onload = function() {
-        updateScoreTable(); // Actualiza la tabla con los puntajes al cargar el menú
+        updateScoreTable(); 
     };
 
     clearScoresButton.addEventListener("click", () => {
-        localStorage.clear(); // Borrar todos los datos de localStorage
-        updateScoreTable(); // Actualizar la tabla de puntajes
+        localStorage.clear(); 
+        updateScoreTable(); 
     });
 
-    function updateScoreTable() { //PENDIENTE REVISAR QUE SE ACTUALICE DE MAYOR A MENOR !!!!!
+    function updateScoreTable() { 
         const tableBody = document.getElementById('highScores').getElementsByTagName('tbody')[0];
         
-        // Crear un array con los puntajes
         let scores = [];
         for (let i = 0; i < localStorage.length; i++) {
             const playerName = localStorage.key(i);
@@ -49,13 +48,9 @@ if (window.location.pathname === '/index.html') {
             }
         }
 
-        // Ordenar los puntajes de mayor a menor
         scores.sort((a, b) => b.score - a.score);
-
-        // Limpiar la tabla antes de actualizarla
         tableBody.innerHTML = '';
 
-        // Insertar los puntajes ordenados en la tabla
         scores.forEach(entry => {
             const newRow = tableBody.insertRow();
             newRow.insertCell(0).textContent = entry.name;
@@ -78,7 +73,6 @@ if (window.location.pathname === '/juego.html') {
         startGame();  
     };
 
-
     function startGame() {
         sequence = [];
         playerSequence = [];
@@ -86,16 +80,16 @@ if (window.location.pathname === '/juego.html') {
         score = 0;
         document.getElementById("score").textContent = score;
         if (interval) { 
-            clearInterval(interval); // Limpiar cualquier intervalo activo
+            clearInterval(interval); 
         }
-
-        addColorToSequence();
+        setTimeout(addColorToSequence(), 5000);
+        
     }
     
     function addColorToSequence() {
         let randomColor = colors[Math.floor(Math.random() * colors.length)];
         sequence.push(randomColor);
-        showSequence();
+        setTimeout(showSequence(), 10000);
     }
     
     function showSequence() {
@@ -115,13 +109,13 @@ if (window.location.pathname === '/juego.html') {
     
     function highlightButton(color) {
         let button = document.querySelector(`.${color}`);
-        button.classList.add('glow'); // Agrega la clase que ilumina el botón
+        button.classList.add('glow'); 
         if (sounds[color]) {
-            sounds[color].currentTime = 0; // Reinicia el sonido si se reproduce seguido
+            sounds[color].currentTime = 0; 
             sounds[color].play();
         }
         setTimeout(() => {
-            button.classList.remove('glow'); // Quita la clase después de 500ms
+            button.classList.remove('glow'); 
         }, 500);
     }
     
@@ -139,26 +133,24 @@ if (window.location.pathname === '/juego.html') {
     }
     
     function endGame(finalScore) {
-        console.log("Game Over! Final Score:", finalScore); 
-
         const popup = document.getElementById("gameOverPopup");
         const finalScoreElement = document.getElementById("finalScore");
-        finalScoreElement.textContent = finalScore; // Mostrar el puntaje final en el pop-up
-        popup.style.display = "flex"; // Mostrar el pop-up
-        document.getElementById("finalScore").textContent = finalScore; // Mostrar el puntaje final en el pop-up
+        finalScoreElement.textContent = finalScore; 
+        popup.style.display = "flex"; 
+        document.getElementById("finalScore").textContent = finalScore; 
 
-        const username = localStorage.getItem("playerName"); // Obtener el nombre del jugador guardado
+        const username = localStorage.getItem("playerName"); 
         let currentScore = localStorage.getItem(username) || 0;
-        currentScore = Math.max(currentScore, finalScore); // Guardar el puntaje más alto
-        localStorage.setItem(username, currentScore); // Guardar el puntaje bajo el nombre del jugador
+        currentScore = Math.max(currentScore, finalScore); 
+        localStorage.setItem(username, currentScore); 
 
         document.getElementById("restartButton").addEventListener("click", () => {
-            popup.style.display = "none"; // Ocultar el pop-up
+            popup.style.display = "none"; 
             startGame(); 
         });
 
         document.getElementById("goToMenuButton").addEventListener("click", () => {
-            window.location.href = "index.html"; // Redirigir al menú
+            window.location.href = "index.html"; 
         });
     }
 
